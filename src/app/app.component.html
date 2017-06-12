@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+<!--<div class="form-group">
+    <label>性别:</label>
+    <div class="radio">
+        <label class="radio-inline" *ngFor="let item of sex">
+            <input type="radio" formControlName="sex" [value]="item"/>{{item}} 
+        </label>
+    </div>
+</div>-->
+<form #dictionaryForm="ngForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+        <label>兴趣爱好:</label>
+        <div class="checkbox" >
+            <label *ngFor="let item of hobbyList" class="checkbox-inline">
+                <input type="checkbox" (click)="selectCheckbox($event.target.checked,item)" name="hobby" />
+                {{item}}</label>
+        </div> 
+    </div>
+    {{selectHobby}}
+     <button class="btn btn-default" type="submit">保存</button>
+</form>
